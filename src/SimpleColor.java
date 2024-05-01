@@ -1,3 +1,5 @@
+package src;
+
 // TODO If you use this class because you dont have your
 // previous SimpleColor, you must document the code with comments
 // and fix the setters so they don't invalidate the [0-255] rule.
@@ -11,7 +13,11 @@ public class SimpleColor {
     }
 
     public void setR(int r) {
-        this.r = r;
+        if(r > 255 || r < 0){
+            throw  new ColorException("Invalid R value");
+        } else{
+            this.r = r;
+        }
     }
 
     public int getG() {
@@ -19,7 +25,11 @@ public class SimpleColor {
     }
 
     public void setG(int g) {
-        this.g = g;
+        if(g > 255 || g < 0){
+            throw new ColorException("Invalid G value");
+        } else{
+            this.g = g;
+        }
     }
 
     public int getB() {
@@ -27,10 +37,14 @@ public class SimpleColor {
     }
 
     public void setB(int b) {
-        this.b = b;
+        if(b > 255 || b < 0){
+            throw new ColorException("Invalid B value");
+        } else{
+            this.b = b;
+        }
     }
 
-    public void setColor(int a, int b, int c) {
+    public void setColor(int a, int b, int c){
         setR(a);
         setG(b);
         setB(c);
@@ -47,5 +61,9 @@ public class SimpleColor {
 
     public SimpleColor(SimpleColor other) {
         this(other.r, other.g, other.b);
+    }
+
+    public static void main(String[]args){
+        throw new ColorException("A test in main");
     }
 }
