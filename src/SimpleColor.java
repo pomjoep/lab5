@@ -1,8 +1,5 @@
 package src;
 
-// TODO If you use this class because you dont have your
-// previous SimpleColor, you must document the code with comments
-// and fix the setters so they don't invalidate the [0-255] rule.
 public class SimpleColor {
     private int r;
     private int g;
@@ -63,7 +60,25 @@ public class SimpleColor {
         this(other.r, other.g, other.b);
     }
 
-    public static void main(String[]args){
-        throw new ColorException("A test in main");
+    @Override
+    public String toString(){
+        return r + ", " + g + ", " + b;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj == null){
+            return false;
+        }
+        if(obj instanceof SimpleColor){
+            SimpleColor simpleColor = (SimpleColor) obj;
+            return simpleColor.r == r && simpleColor.g == g && simpleColor.b == b;
+        } else{
+            return false;
+        }
+    }
+
+//    public static void main(String[]args){
+//        throw new ColorException("A test in main");
+//    }
 }
